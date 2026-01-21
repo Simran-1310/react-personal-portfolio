@@ -6,7 +6,7 @@ let About=()=>{
         
             <div className="md:w-1/2">
             <h2 className="text-3xl md:text-4xl font-bold text-center md:text-left text-white">About Me</h2>
-            <p className="text-base md:text-lg mt-5 leading-relaxed text-white">Hi! I'm Simarn Sharam, a passionate web developer eager to create modern and responsive web applications.<br/> I specialize in React, JavaScript, and Tailwind CSS, and I enjoy learning new technologies to improve my coding skills.
+            <p className="text-base md:text-lg mt-5 leading-relaxed text-white">Hi! I'm Simarn Sharma, a passionate web developer eager to create modern and responsive web applications.<br/> I specialize in React, JavaScript, and Tailwind CSS, and I enjoy learning new technologies to improve my coding skills.
 
             I'm enthusiastic about building user-friendly and visually appealing websites. Though I’m just starting my professional journey, I have worked on personal projects and learning exercises that helped me gain practical experience in frontend development.
 
