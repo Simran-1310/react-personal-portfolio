@@ -12,7 +12,7 @@ let Home = () => {
       
       {/* Social Icons */}
       <div className="flex flex-row md:flex-col gap-4 md:gap-6">
-        <a href="https://www.linkedin.com/in/your-linkedin/" className="hover:text-blue-400 transition">
+        <a href="https://www.linkedin.com/in/simran-sharma-bb1890288" className="hover:text-blue-400 transition">
           <FaLinkedin size={30} />
         </a>
         <a href="https://github.com/Simran-1310" className="text-gray-300 hover:text-white transition">
