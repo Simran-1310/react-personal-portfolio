@@ -1,3 +1,4 @@
+import img from "./assets/img.jpeg";
 let About=()=>{
     return(
         <>
@@ -13,7 +14,7 @@ let About=()=>{
            </p>
            </div>
            <div className="w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full overflow-hidden flex-shrink-0">
-            <img src="src/assets/img.jpeg" className="h-full w-full flex-shrink-0 object-cover"/>
+            <img src={img} className="h-full w-full flex-shrink-0 object-cover"/>
            </div>
         </div>
         </>
