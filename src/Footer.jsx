@@ -9,8 +9,9 @@ const Footer = () => {
               Simran Sharma
             </h2>
             <p className="text-sm text-gray-400">
-              Passionate frontend developer building modern and responsive
-              web applications using React and Tailwind CSS.
+               Passionate MERN Stack Developer dedicated to building modern,
+            responsive, and user-friendly web applications using React,
+            Node.js, Express.js, MongoDB, and Tailwind CSS.
             </p>
           </div>
   

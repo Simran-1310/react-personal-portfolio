@@ -24,7 +24,7 @@ let Home = () => {
       <div className="text-center md:text-left">
         <p className="text-lg md:text-2xl">Hello, I am</p>
         <h2 className="text-3xl md:text-5xl font-bold mt-2">Simran Sharma</h2>
-        <h1 className="text-xl md:text-4xl text-orange-400 mt-2">Front end Web Developer</h1>
+        <h1 className="text-xl md:text-4xl text-orange-400 mt-2">MERN Stack Developer</h1>
         <button onClick={() => scrollToSection("contact")} className="mt-4 md:mt-6 bg-orange-600 px-6 py-2 rounded-md">
           Contact Me &rarr;
         </button>

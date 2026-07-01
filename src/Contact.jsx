@@ -1,92 +1,122 @@
-import { useForm } from "react-hook-form";
+import React from "react";
+import { useForm, ValidationError } from "@formspree/react";
 
-let Contact = () => {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+function Contact() {
+  const [state, handleSubmit] = useForm("mpqjnwej");
 
-  const onSubmit = (data) => {
-    console.log(data); // yahan aap API / EmailJS laga sakte ho
-    reset();
-  };
+  if (state.succeeded) {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="bg-white p-10 rounded-2xl shadow-xl text-center">
+        <h2 className="text-3xl font-bold text-green-600">
+           Message Sent!
+        </h2>
+        <p className="mt-4 text-gray-600">
+          Thank you for contacting me. I'll get back to you soon.
+        </p>
+      </div>
+    </div>
+  );
+}
 
   return (
-    <div className="max-w-xl mx-auto p-6 border rounded-lg mt-5 bg-white">
-      
-      {/* HEADING */}
-      <h1 className="text-2xl font-semibold mb-2">Contact Details</h1>
-      <p className="text-gray-600 mb-6">
-        Feel free to reach out if you have any questions or feedback.
+  <div className="min-h-screen flex items-center justify-center px-6 py-12">
+    <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8">
+      <h2 className="text-4xl font-bold text-center mb-2">
+        Contact Me
+      </h2>
+      <p className="text-center text-gray-500 mb-8">
+        Feel free to reach out. I'll get back to you as soon as possible.
       </p>
 
-      {/* CONTACT DETAILS */}
-      <div className="mb-6 text-sm text-gray-700">
-        <p><strong>Email:</strong> skilltracker@gmail.com</p>
-        <p><strong>Phone:</strong> +91 98765 76510</p>
-        <p><strong>Location:</strong> India</p>
-      </div>
-
-      {/* FORM */}
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-6">
 
         {/* Name */}
         <div>
-          <label className="block mb-1">Full Name</label>
+          <label
+            htmlFor="name"
+            className="block mb-2 text-gray-700 font-semibold"
+          >
+            Full Name
+          </label>
+
           <input
+            id="name"
             type="text"
-            className="w-full border rounded-md p-2"
+            name="name"
+            required
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter your name"
-            {...register("name", { required: "Name is required" })}
           />
-          {errors.name && (
-            <p className="text-red-500 text-sm">{errors.name.message}</p>
-          )}
+
+          <ValidationError
+            prefix="Name"
+            field="name"
+            errors={state.errors}
+          />
         </div>
 
         {/* Email */}
         <div>
-          <label className="block mb-1">Email Address</label>
-          <input
-            type="email"
-            className="w-full border rounded-md p-2"
-            placeholder="Enter your email"
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^\S+@\S+$/i,
-                message: "Invalid email address",
-              },
-            })}
-          />
-          {errors.email && (
-            <p className="text-red-500 text-sm">{errors.email.message}</p>
-          )}
-        </div>
+          <label
+            htmlFor="email"
+            className="block mb-2 text-gray-700 font-semibold"
+          >
+            Email Address
+          </label>
 
-  
+          <input
+            id="email"
+            type="email"
+            name="email"
+            required
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your email"
+          />
+
+          <ValidationError
+            prefix="Email"
+            field="email"
+            errors={state.errors}
+          />
+        </div>
 
         {/* Message */}
         <div>
-          <label className="block mb-1">Your Message</label>
+          <label
+            htmlFor="message"
+            className="block mb-2 text-gray-700 font-semibold"
+          >
+            Message
+          </label>
+
           <textarea
-            className="w-full border rounded-md p-2 h-32"
-            placeholder="Write your message here..."
-            {...register("message", { required: "Message is required" })}
+            id="message"
+            name="message"
+            rows="5"
+            required
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Write your message..."
+          ></textarea>
+
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={state.errors}
           />
-          {errors.message && (
-            <p className="text-red-500 text-sm">{errors.message.message}</p>
-          )}
         </div>
 
-        {/* Button */}
         <button
           type="submit"
-          className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition"
+          disabled={state.submitting}
+          className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 disabled:opacity-50"
         >
-          Send Message
+          {state.submitting ? "Sending..." : "Send Message"}
         </button>
-
       </form>
     </div>
-  );
-};
+  </div>
+);
+}
 
 export default Contact;
